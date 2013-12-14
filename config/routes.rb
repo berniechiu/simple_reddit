@@ -1,4 +1,6 @@
 SimpleReddit::Application.routes.draw do
+  devise_for :users
+
   root to: 'pages#index'
   resources :pages
   # The priority is based upon order of creation:
