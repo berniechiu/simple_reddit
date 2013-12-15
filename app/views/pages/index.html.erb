@@ -1,4 +1,11 @@
-<h2>Home Page</h2>
 <% if current_user.present? %>
   <%= link_to "Add a link", new_link_path %>
+  <h3>Popular Links <span class="label label-default">New</span></h3>
+  <ul class="list-group">
+    <% @links.each do |link| %>
+      <li class="list-group-item"><%= link_to link.title, link_path(link) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <h2>Home Page</h2>
 <% end %>

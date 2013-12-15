@@ -1,0 +1,14 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Link Title</th>
+      <th>Link URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @link.title %></td>
+      <td><%= link_to(@link.url, @link.url, target: "_blank") %></td>
+    </tr>
+  </tbody>
+</table>
