@@ -1,9 +1,26 @@
 <% if current_user.present? %>
-  <%= link_to "Add a link", new_link_path %>
-  <h3>Popular Links <span class="label label-default">New</span></h3>
+  <%= link_to "Add a link", new_link_path, :class => "btn btn-primary" %>
+  <h3>Links <span class="label label-default">Popular</span></h3>
   <ul class="list-group">
     <% @links.each do |link| %>
-      <li class="list-group-item"><%= link_to link.title, link_path(link) %></li>
+      <li class="list-group-item">
+        <span class="glyphicon glyphicon-arrow-up"></span>
+        <span class="glyphicon glyphicon-arrow-down"></span>
+        <span class="badge">157</span>
+        <%= link_to link.title, link_path(link) %>
+      </li>
+    <% end %>
+  </ul>
+
+  <h3>Links <span class="label label-default">New</span></h3>
+  <ul class="list-group">
+    <% @links.each do |link| %>
+      <li class="list-group-item">
+        <span class="glyphicon glyphicon-arrow-up"></span>
+        <span class="glyphicon glyphicon-arrow-down"></span>
+        <span class="badge"><%= Random.rand(70) %></span>
+        <%= link_to link.title, link_path(link) %>
+      </li>
     <% end %>
   </ul>
 <% else %>
