@@ -1,24 +1,26 @@
 <%= form_for(@link, :role => "form") do |f| %>
   <% if @link.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@link.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
+      <div class="alert alert-danger">
+        <strong>Warning!</strong> 
+        The form contains <%= pluralize(@link.errors.count, "error") %>.
+      </div>
+      <ul class="list-group">
       <% @link.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <li class="list-group-item"><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
   <div class="row">
     <div class="form-group col-xs-4">
-      <%= f.label :title %><br />
+      <%= f.label :title %>
       <%= f.text_field :title, :class => "form-control", :placeholder => "Enter title" %>
     </div>
   </div>
   <div class="row">
     <div class="form-group col-xs-4">
-      <%= f.label :url %><br />
+      <%= f.label :url %>
       <%= f.text_field :url, :class => "form-control", :placeholder => "Enter URL" %>
     </div>
   </div>
