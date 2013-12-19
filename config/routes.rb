@@ -4,12 +4,9 @@ SimpleReddit::Application.routes.draw do
   root to: 'pages#index'
 
   resources :pages
-  resources :links do
-    member do
-      post 'vote_up'
-      post 'vote_down'
-    end
-  end
+  resources :links 
+
+  post 'votes' => 'votes#create'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

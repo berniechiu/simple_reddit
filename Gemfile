@@ -9,6 +9,9 @@ gem 'bootstrap-sass', '3.0.3.0'
 
 gem 'sqlite3'
 
+group :development do
+  gem 'pry'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
