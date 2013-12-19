@@ -2,8 +2,14 @@ SimpleReddit::Application.routes.draw do
   devise_for :users
 
   root to: 'pages#index'
+
   resources :pages
-  resources :links
+  resources :links do
+    member do
+      post 'vote_up'
+      post 'vote_down'
+    end
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

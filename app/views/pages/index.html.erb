@@ -2,26 +2,12 @@
   <%= link_to "Add a link", new_link_path, :class => "btn btn-primary" %>
   <h3>Links <span class="label label-default">Popular</span></h3>
   <ul class="list-group">
-    <% @popular_links.each do |link| %>
-      <li class="list-group-item">
-        <%= link_to(content_tag(:span, '', :class => 'glyphicon glyphicon-arrow-up'), '#') %>
-        <%= link_to(content_tag(:span, '', :class => 'glyphicon glyphicon-arrow-down'), '#') %>
-        <%= content_tag :span, link.votes.count, :class => 'badge' %>
-        <%= link_to link.title, link_path(link) %>
-      </li>
-    <% end %>
+    <%= render partial: 'link', collection: @popular_links, as: :link %>
   </ul>
 
   <h3>Links <span class="label label-default">New</span></h3>
   <ul class="list-group">
-    <% @newest_links.each do |link| %>
-      <li class="list-group-item">
-        <%= link_to(content_tag(:span, '', :class => 'glyphicon glyphicon-arrow-up'), '#') %>
-        <%= link_to(content_tag(:span, '', :class => 'glyphicon glyphicon-arrow-down'), '#') %>
-        <%= content_tag :span, link.votes.count, :class => 'badge' %>
-        <%= link_to link.title, link_path(link) %>
-      </li>
-    <% end %>
+    <%= render partial: 'link', collection: @newest_links, as: :link %>
   </ul>
 <% else %>
   <h2>Home Page</h2>

@@ -1,0 +1,6 @@
+<li class="list-group-item">
+  <%= link_to(content_tag(:span, '', :class => 'glyphicon glyphicon-arrow-up'), vote_up_link_path(link), :class => 'arrow-up') %>
+  <%= link_to(content_tag(:span, '', :class => 'glyphicon glyphicon-arrow-down'), vote_down_link_path(link), :class => 'arrow-down') %>
+  <%= content_tag :span, link.votes.count, :class => 'badge' %>
+  <%= link_to link.title, link_path(link) %>
+</li>
