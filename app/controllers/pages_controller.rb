@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def index
-    @newest_links = Link.newest
-    @popular_links = Link.popular
+    @newest_links = Link.includes(:votes).newest
+    @popular_links = Link.top
   end
 end

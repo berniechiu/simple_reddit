@@ -8,5 +8,11 @@ class Link < ActiveRecord::Base
   validates :url,   presence: true
 
   scope :newest, where('created_at > ?', 10.days.ago)
-  scope :popular, where('created_at < ?', 10.days.ago)
+
+  def self.top
+    self.includes(:votes).all.sort do |a, b|
+      (b.votes.where(:up => true).count - b.votes.where(:up => false).count) <=> 
+      (a.votes.where(:up => true).count - a.votes.where(:up => false).count)
+    end
+  end
 end
