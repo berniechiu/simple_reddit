@@ -8,6 +8,7 @@
   <h3>Links <span class="label label-default">New</span></h3>
   <ul class="list-group">
     <%= render partial: 'link', collection: @newest_links, as: :link %>
+    <%= will_paginate @newest_links %>
   </ul>
 <% else %>
   <h2>Home Page</h2>
