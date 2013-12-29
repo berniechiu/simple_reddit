@@ -1,6 +1,6 @@
 defaults: &defaults
-  facebook_app_id: 'fb_app_id'
-  facebook_secret: 'fb_secret_id'
+  facebook_app_id: '212048832312471'
+  facebook_secret: '53818a0b8b4a5d38426a2fa7cfb7fd5d'
 
 development:
   <<: *defaults

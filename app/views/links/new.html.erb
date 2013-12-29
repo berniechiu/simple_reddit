@@ -1,3 +1,5 @@
+<% load_page_specific_javascripts('link_preview') %>
+
 <%= form_for(@link, :role => "form") do |f| %>
   <% if @link.errors.any? %>
     <div id="error_explanation">
@@ -22,11 +24,12 @@
     <div class="form-group col-xs-4">
       <%= f.label :url %>
       <%= f.text_field :url, :class => "form-control", :placeholder => "Enter URL" %>
+      <div class="selector-wrapper"></div>
     </div>
   </div>
   <div class="row">
     <div class="form-group col-xs-4">
-      <%= f.submit :class => "btn btn-default" %>
+      <%= f.submit :class => "btn btn-default", :id => "link-submit" %>
     </div>
   </div>
 <% end %>
