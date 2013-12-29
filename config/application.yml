@@ -1,0 +1,10 @@
+defaults: &defaults
+  facebook_app_id: 'fb_app_id'
+  facebook_secret: 'fb_secret_id'
+
+development:
+  <<: *defaults
+  domain: 'http://localhost:3000'
+
+production:
+  <<: *defaults

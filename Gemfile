@@ -5,6 +5,10 @@ gem 'devise'
 gem 'bootstrap-sass', '3.0.3.0'
 gem 'will_paginate', '~> 3.0'
 gem 'bootstrap-will_paginate'
+gem "omniauth"
+gem "omniauth-facebook"
+gem "auto-facebook"
+gem "settingslogic"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
