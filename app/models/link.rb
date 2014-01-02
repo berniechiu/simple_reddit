@@ -1,4 +1,6 @@
 class Link < ActiveRecord::Base
+  acts_as_commentable
+  
   attr_accessible :title, :url
 
   belongs_to :user

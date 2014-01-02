@@ -9,6 +9,7 @@ gem "omniauth"
 gem "omniauth-facebook"
 gem "auto-facebook"
 gem "settingslogic"
+gem "acts_as_commentable", '3.0.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
