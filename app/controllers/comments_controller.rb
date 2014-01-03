@@ -6,9 +6,9 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to link_path(@link)
     else
-      render 'links/show'
+      redirect_to link_path(@link), notice: "There is something wrong with your comment!"
     end
   end
 
-  def delete; end
+  def destroy; end
 end

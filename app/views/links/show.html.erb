@@ -13,20 +13,31 @@
   </tbody>
 </table>
 
-<%= form_for(@comment, :url => comments_link_path, :html => { :class => "form-horizontal", :role => "form" }) do |f| %>
-<div class="form-group">
-  <div class="col-sm-offset-4 col-sm-5">
-    <% if @comment.errors.any? %>
-      <div id="error_explanation">
-        <ul class="list-group">
-        <% @comment.errors.full_messages.each do |msg| %>
-          <li class="list-group-item"><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
+<% if not @comments.nil? %>
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th class="col-md-2">Post Time</th>
+        <th class="col-md-2">Title</th>
+        <th class="col-md-8">Comment</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td class="col-md-2"><%= comment.created_at %></td>
+        <td class="col-md-2"><%= comment.title %></td>
+        <td class="col-md-8"><%= comment.comment %></td>
+      </tr>
     <% end %>
-  </div>
-</div>
+    </tbody>
+  </table>
+  <%= will_paginate @comments %>
+<% end %>
+
+<hr />
+
+<%= form_for(@comment, :url => comments_link_path, :html => { :class => "form-horizontal", :role => "form" }) do |f| %>
 <div class="form-group">
   <label for="inputTitle" class="col-sm-4 control-label">Title</label>
   <div class="col-sm-5">

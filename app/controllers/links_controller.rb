@@ -4,6 +4,7 @@ class LinksController < ApplicationController
   def show
     @link = Link.includes(:user).find(params[:id])
     @comment = @link.comments.new
+    @comments = @link.comments.paginate(:page => params[:page], :per_page => 5)
   end
 
   def new
