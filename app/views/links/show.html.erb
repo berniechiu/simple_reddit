@@ -8,7 +8,40 @@
   <tbody>
     <tr>
       <td><%= @link.title %></td>
-      <td><%= link_to(@link.url, @link.url, target: "_blank") %></td>
+      <td><%= link_to(@link.url, @link.url, :target => "_blank") %></td>
     </tr>
   </tbody>
 </table>
+
+<%= form_for(@comment, :url => comments_link_path, :html => { :class => "form-horizontal", :role => "form" }) do |f| %>
+<div class="form-group">
+  <div class="col-sm-offset-4 col-sm-5">
+    <% if @comment.errors.any? %>
+      <div id="error_explanation">
+        <ul class="list-group">
+        <% @comment.errors.full_messages.each do |msg| %>
+          <li class="list-group-item"><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="form-group">
+  <label for="inputTitle" class="col-sm-4 control-label">Title</label>
+  <div class="col-sm-5">
+    <%= f.text_field :title, :class => "form-control", :id => "inputTitle" %>
+  </div>
+</div>
+<div class="form-group">
+  <label for="inputComment" class="col-sm-4 control-label">Comment</label>
+  <div class="col-sm-5">
+    <%= f.text_area :comment, :class => "form-control", :id => "inputComment", :rows => "3" %>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-sm-offset-4 col-sm-5">
+    <%= f.submit :class => "btn btn-default", :id => "link-submit" %>
+  </div>
+</div>
+<% end %>

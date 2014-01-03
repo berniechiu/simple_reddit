@@ -4,6 +4,9 @@ class Comment < ActiveRecord::Base
 
   attr_accessible :title, :comment
 
+  validates :title, presence: true
+  validates :comment,   presence: true
+
   belongs_to :commentable, :polymorphic => true
 
   default_scope :order => 'created_at ASC'

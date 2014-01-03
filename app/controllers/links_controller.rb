@@ -3,6 +3,7 @@ class LinksController < ApplicationController
 
   def show
     @link = Link.includes(:user).find(params[:id])
+    @comment = @link.comments.new
   end
 
   def new
