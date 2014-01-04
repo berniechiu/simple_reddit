@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
   def create
     @link = @link = Link.find(params[:id])
     @comment = @link.comments.new(params[:comment])
+    @comment.user_id = current_user.id
 
     if @comment.save
       redirect_to link_path(@link)
