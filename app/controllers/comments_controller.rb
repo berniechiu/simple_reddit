@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_filter :authenticate_user!, only: [:create, :destroy]
+
   def create
     @link = @link = Link.find(params[:id])
     @comment = @link.comments.new(params[:comment])

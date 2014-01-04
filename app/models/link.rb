@@ -12,9 +12,9 @@ class Link < ActiveRecord::Base
   scope :newest, where('created_at > ?', 10.days.ago)
 
   def self.top
-    self.limit(6).sort do |a, b|
+    self.all.sort do |a, b|
       (b.votes.where(:up => true).count - b.votes.where(:up => false).count) <=> 
       (a.votes.where(:up => true).count - a.votes.where(:up => false).count)
-    end
+    end.first(6)
   end
 end
