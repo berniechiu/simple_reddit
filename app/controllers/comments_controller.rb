@@ -2,14 +2,14 @@ class CommentsController < ApplicationController
   before_filter :authenticate_user!, only: [:create, :destroy]
 
   def create
-    @link = @link = Link.find(params[:id])
+    @link = Link.find(params[:id])
     @comment = @link.comments.new(params[:comment])
     @comment.user_id = current_user.id
 
     if @comment.save
-      redirect_to link_path(@link)
+      redirect_to :back
     else
-      redirect_to link_path(@link), notice: "There is something wrong with your comment!"
+      redirect_to :back, notice: "Please Fill Out Your Comment Properly!"
     end
   end
 
