@@ -11,6 +11,7 @@ SimpleReddit::Application.routes.draw do
     end
   end
 
+  delete 'comments/:id' => 'comments#destroy', as: :destroy_comment
   post 'votes' => 'votes#create'
 
   # The priority is based upon order of creation:
