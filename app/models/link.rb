@@ -10,6 +10,7 @@ class Link < ActiveRecord::Base
   validates :url,   presence: true
 
   scope :newest, where('created_at > ?', 10.days.ago)
+  scope :feed, select("title, url, created_at").order('created_at DESC').limit(10)
 
   def self.top
     self.all.sort do |a, b|

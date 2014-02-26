@@ -11,6 +11,7 @@ SimpleReddit::Application.routes.draw do
     end
   end
 
+  get 'feed' => 'links#feed'
   delete 'comments/:id' => 'comments#destroy', as: :destroy_comment
   post 'votes' => 'votes#create'
 

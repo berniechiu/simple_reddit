@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  before_filter :authenticate_user!, only: [:new, :create]
+  before_filter :authenticate_user!, only: [:new, :create, :feed]
 
   def show
     @link = Link.includes(:user).find(params[:id])
@@ -18,6 +18,14 @@ class LinksController < ApplicationController
       redirect_to root_path
     else
       render 'new'
+    end
+  end
+
+  def feed
+    @links = Link.feed
+    
+    respond_to do |format|
+      format.rss { render layout: false } #feed.rss.builder
     end
   end
 end

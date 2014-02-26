@@ -1,15 +1,18 @@
 <% if current_user.present? %>
+  <%= link_to(image_tag("rss_icon.png", size: "35x35"), feed_path(format: :rss)) %>
   <%= link_to "Add a link", new_link_path, :class => "btn btn-primary" %>
   <h3>Links <span class="label label-default">Popular</span></h3>
   <ul class="list-group">
     <%= render partial: 'link', collection: @popular_links, as: :link %>
   </ul>
-
-  <h3>Links <span class="label label-default">New</span></h3>
-  <ul class="list-group">
-    <%= render partial: 'link', collection: @newest_links, as: :link %>
-    <%= will_paginate @newest_links %>
-  </ul>
+  
+  <% if not @newest_links.blank? %>
+    <h3>Links <span class="label label-default">New</span></h3>
+    <ul class="list-group">
+      <%= render partial: 'link', collection: @newest_links, as: :link %>
+      <%= will_paginate @newest_links %>
+    </ul>
+  <% end %>
 <% else %>
   <h2>Home Page</h2>
 <% end %>
