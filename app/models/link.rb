@@ -4,7 +4,8 @@ class Link < ActiveRecord::Base
   attr_accessible :title, :url
 
   belongs_to :user
-  has_many :votes
+  belongs_to :category
+  has_many :votes, dependent: :destroy
 
   validates :title, presence: true
   validates :url,   presence: true
