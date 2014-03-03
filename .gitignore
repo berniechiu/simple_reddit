@@ -16,3 +16,11 @@
 
 # Ignore private config
 /config/application.yml
+database.yml
+doc/
+*.swp
+*~
+.project
+.DS_Store
+.idea
+.secret
