@@ -16,6 +16,13 @@
   <% end %>
   <div class="row">
     <div class="form-group col-xs-4">
+      <%= f.label :category_id %>
+      <%= f.select :category_id, options_for_select(@categories), {}, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-xs-4">
       <%= f.label :title %>
       <%= f.text_field :title, :class => "form-control", :placeholder => "Enter title" %>
     </div>

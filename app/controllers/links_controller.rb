@@ -9,6 +9,7 @@ class LinksController < ApplicationController
 
   def new
     @link = Link.new
+    @categories = Category.all.map { |c| [c.name, c.id] }
   end
 
   def create

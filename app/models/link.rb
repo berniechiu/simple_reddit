@@ -1,7 +1,7 @@
 class Link < ActiveRecord::Base
   acts_as_commentable
   
-  attr_accessible :title, :url
+  attr_accessible :title, :url, :category_id
 
   belongs_to :user
   belongs_to :category

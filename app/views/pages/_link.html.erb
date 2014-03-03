@@ -2,5 +2,6 @@
   <%= link_to(content_tag(:span, '', :class => 'glyphicon glyphicon-arrow-up'), votes_path(:vote => {:link_id => link.id, :up => true}), :class => 'arrow-up', :method => :post) %>
   <%= link_to(content_tag(:span, '', :class => 'glyphicon glyphicon-arrow-down'), votes_path(:vote => {:link_id => link.id, :up => false}), :class => 'arrow-down', :method => :post) %>
   <%= content_tag :span, (link.votes.where(:up => true).count - link.votes.where(:up => false).count), :class => 'badge' %>
+  <span class="label label-info"><%= link.category.name %></span>
   <%= link_to link.title, link_path(link) %>
 </li>
