@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140303134137) do
+ActiveRecord::Schema.define(:version => 20140305090903) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -72,7 +72,9 @@ ActiveRecord::Schema.define(:version => 20140303134137) do
     t.boolean  "up"
   end
 
+  add_index "votes", ["link_id", "user_id"], :name => "index_votes_on_link_id_and_user_id", :unique => true
   add_index "votes", ["link_id"], :name => "index_votes_on_link_id"
+  add_index "votes", ["up"], :name => "index_votes_on_up"
   add_index "votes", ["user_id"], :name => "index_votes_on_user_id"
 
 end
