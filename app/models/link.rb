@@ -6,6 +6,8 @@ class Link < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   has_many :votes, dependent: :destroy
+  has_many :up_votes, class_name: 'Vote', conditions: { up: true }
+  has_many :down_votes, class_name: 'Vote', conditions: { up: false }
 
   validates :title, presence: true
   validates :url,   presence: true
@@ -16,15 +18,9 @@ class Link < ActiveRecord::Base
 
   def self.top
     self.all.sort do |a, b|
-
-      # Calculate each link's vote counts
-      a_votes = a.votes.where(:up => true).count -
-                a.votes.where(:up => false).count
-      b_votes = b.votes.where(:up => true).count -
-                b.votes.where(:up => false).count
-
       # Compare it from highest value to lowest value
-      b_votes <=> a_votes
+      (b.up_votes.count - b.down_votes.count) <=>
+      (a.up_votes.count - a.down_votes.count)
     end.first(6)
   end
 end
