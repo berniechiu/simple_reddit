@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140305090903) do
+ActiveRecord::Schema.define(:version => 20140402082555) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -34,12 +34,14 @@ ActiveRecord::Schema.define(:version => 20140305090903) do
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "links", :force => true do |t|
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.integer  "user_id"
     t.string   "url"
     t.string   "title"
     t.integer  "category_id"
+    t.integer  "up_votes_count",   :default => 0
+    t.integer  "down_votes_count", :default => 0
   end
 
   create_table "users", :force => true do |t|

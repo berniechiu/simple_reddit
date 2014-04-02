@@ -19,8 +19,8 @@ class Link < ActiveRecord::Base
   def self.top
     self.all.sort do |a, b|
       # Compare it from highest value to lowest value
-      (b.up_votes.count - b.down_votes.count) <=>
-      (a.up_votes.count - a.down_votes.count)
+      (b.up_votes.length - b.down_votes.length) <=>
+      (a.up_votes.length - a.down_votes.length)
     end.first(6)
   end
 end
