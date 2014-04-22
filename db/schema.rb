@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140422012335) do
+ActiveRecord::Schema.define(:version => 20140422021142) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -75,9 +75,14 @@ ActiveRecord::Schema.define(:version => 20140422012335) do
     t.string   "duration"
     t.integer  "likes"
     t.integer  "dislikes"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "category_id"
+    t.integer  "user_id"
+    t.string   "uid"
   end
+
+  add_index "videos", ["uid"], :name => "index_videos_on_uid", :unique => true
 
   create_table "votes", :force => true do |t|
     t.integer  "user_id"
