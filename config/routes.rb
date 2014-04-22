@@ -4,6 +4,7 @@ SimpleReddit::Application.routes.draw do
   root to: 'pages#index'
 
   resources :pages
+  resources :videos, only: [:new, :create]
 
   resources :links do
     member do

@@ -16,6 +16,7 @@ class LinksController < ApplicationController
     @link = current_user.links.build(params[:link])
 
     if @link.save
+      flash[:success] = "You successfully created a link."
       redirect_to root_path
     else
       render 'new'
@@ -24,7 +25,7 @@ class LinksController < ApplicationController
 
   def feed
     @links = Link.feed
-    
+
     respond_to do |format|
       format.rss { render layout: false } #feed.rss.builder
     end
