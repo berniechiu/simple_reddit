@@ -1,9 +1,16 @@
+<% load_page_specific_javascripts('yt_player') %>
+
 <% if current_user.present? %>
   <%= link_to(image_tag("rss_icon.png", size: "35x35"), feed_path(format: :rss)) %>
   <%= link_to "Add a link", new_link_path, class: "btn btn-primary" %>
   <%= link_to "Add a video", new_video_path, class: "btn btn-primary" %>
   <h3>Latest Videos</h3>
-  <div id="player-wrapper"></div>
+  <div class="panel panel-default">
+    <div class="panel-heading center">Video Preview</div>
+    <div class="panel-body center">
+      <div id="player-wrapper"></div>
+    </div>
+  </div>
   <div class="row">
     <% if @videos %>
       <% @videos.each do |video| %>

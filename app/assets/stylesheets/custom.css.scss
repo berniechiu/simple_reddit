@@ -47,8 +47,7 @@ textarea {
 }
 
 .field_with_errors {
-  @extend .control-group;
-  @extend .error;
+  @extend .has-error;
 }
 
 a.arrow-up {
@@ -62,4 +61,8 @@ a.arrow-down {
 table {
   table-layout: fixed;
   word-wrap: break-word;
+}
+
+.center {
+  text-align: center;
 }

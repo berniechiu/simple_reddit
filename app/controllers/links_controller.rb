@@ -19,6 +19,7 @@ class LinksController < ApplicationController
       flash[:success] = "You successfully created a link."
       redirect_to root_path
     else
+      @categories = Category.all.map { |c| [c.name, c.id] }
       render 'new'
     end
   end
