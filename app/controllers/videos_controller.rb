@@ -13,6 +13,7 @@ class VideosController < ApplicationController
       flash[:success] = 'Video added!'
       redirect_to root_url
     else
+      @categories = Category.all.map { |c| [c.name, c.id] }
       render 'new'
     end
   end
