@@ -2,6 +2,30 @@
   <%= link_to(image_tag("rss_icon.png", size: "35x35"), feed_path(format: :rss)) %>
   <%= link_to "Add a link", new_link_path, class: "btn btn-primary" %>
   <%= link_to "Add a video", new_video_path, class: "btn btn-primary" %>
+  <h3>Latest Videos</h3>
+  <div id="player-wrapper"></div>
+  <div class="row">
+    <% if @videos %>
+      <% @videos.each do |video| %>
+        <div class="col-md-3">
+          <div class="yt_video thumbnail">
+            <%= image_tag "https://img.youtube.com/vi/#{video.uid}/mqdefault.jpg", alt: video.title,
+                          class: 'yt_preview img-rounded', :"data-uid" => video.uid %>
+
+            <div class="caption">
+              <h5><%= video.title %></h5>
+              <p>Author: <b><%= video.author %></b></p>
+              <p>Duration: <b><%= video.duration %></b></p>
+              <p>
+                <span class="glyphicon glyphicon glyphicon-thumbs-up"></span> <%= video.likes %>
+                <span class="glyphicon glyphicon glyphicon-thumbs-down"></span> <%= video.dislikes %>
+              </p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end -%>
+  </div>
   <h3>Links <span class="label label-default">Popular</span></h3>
   <ul class="list-group">
     <%= render partial: 'link', collection: @popular_links, as: :link %>

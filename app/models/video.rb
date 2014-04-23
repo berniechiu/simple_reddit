@@ -7,6 +7,8 @@ class Video < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
 
+  scope :recent, order('created_at DESC').limit(4)
+
   before_create -> do
     uid = link.match(YT_LINK_FORMAT)
     self.uid = uid[2] if uid && uid[2]
