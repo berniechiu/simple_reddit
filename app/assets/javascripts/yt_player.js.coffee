@@ -1,9 +1,12 @@
 jQuery ->
+  current_uid = ""
+
   $('.yt_preview').click ->
     $player_wrapper = $('#player-wrapper')
     $("#video-preview").slideDown() if $("#video-preview").css("display") == "none"
     $player_wrapper.fadeOut('fast')
     makeVideoPlayer $(this).data('uid')
+    current_uid = $(this).data('uid')
     $player_wrapper.fadeIn('slow')
 
   # Initially the player is not loaded
@@ -39,5 +42,22 @@ jQuery ->
     return
 
   google.setOnLoadCallback _run
+
+  $('.glyphicon.glyphicon-2x.glyphicon-chevron-left').click ->
+    switchVideo("left")
+
+  $('.glyphicon.glyphicon-2x.glyphicon-chevron-right').click ->
+    switchVideo("right")
+
+  switchVideo = (direction) ->
+    current_index = 0
+    $yt_preview = $('.yt_preview')
+    $.each $yt_preview, (index, video) ->
+      if current_uid == $yt_preview.eq(index).data('uid')
+        current_index = index
+
+    next_index = if direction == 'left' then current_index - 1 else current_index + 1
+    $yt_preview.eq(next_index).click()
+    current_uid = next_uid
 
   return
