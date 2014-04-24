@@ -1,22 +1,27 @@
 jQuery ->
-  $('.yt_preview').click -> makeVideoPlayer $(this).data('uid')
+  $('.yt_preview').click ->
+    $player_wrapper = $('#player-wrapper')
+    $("#video-preview").slideDown() if $("#video-preview").css("display") == "none"
+    $player_wrapper.fadeOut('fast')
+    makeVideoPlayer $(this).data('uid')
+    $player_wrapper.fadeIn('slow')
 
   # Initially the player is not loaded
   window.ytPlayerLoaded = false
 
   _run = ->
     # Runs as soon as Google API is loaded
-    $('.yt_preview').first().click()
+    $("#video-preview").hide()
     return
 
   makeVideoPlayer = (video) ->
     if !window.ytPlayerLoaded
-      player_wrapper = $('#player-wrapper')
-      player_wrapper.append('<div id="ytPlayer"><p>Loading player...</p></div>')
+      $player_wrapper = $('#player-wrapper')
+      $player_wrapper.append('<div id="ytPlayer"><p>Loading player...</p></div>')
 
       window.ytplayer = new YT.Player('ytPlayer', {
         width: '60%'
-        height: (player_wrapper.width() / 1.777777777) * 0.6
+        height: ($player_wrapper.width() / 1.777777777) * 0.6
         videoId: video
         playerVars: {
           wmode: 'opaque'
