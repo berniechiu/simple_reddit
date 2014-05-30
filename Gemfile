@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.17'
+gem 'rails', '3.2.18'
 gem 'devise'
 gem 'bootstrap-sass', '3.1.1.1'
 gem 'youtube_it', '~> 2.4.0'
