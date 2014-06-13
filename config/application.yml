@@ -11,3 +11,4 @@ development:
 
 production:
   <<: *defaults
+  domain: 'http://bernie-reddit.herokuapp.com/'
