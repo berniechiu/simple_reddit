@@ -62,6 +62,6 @@ module SimpleReddit
     config.assets.initialize_on_precompile = false
 
     # Add custom JavaScript loader to assets pipeline precompile
-    config.assets.precompile += %w[yt_player.js link_preview.js.erb video_preview.js.erb]
+    config.assets.precompile += %w[yt_player.js link_preview.js video_preview.js.erb]
   end
 end
