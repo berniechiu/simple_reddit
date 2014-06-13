@@ -11,7 +11,6 @@ gem 'bootstrap-will_paginate'
 gem "omniauth"
 gem "omniauth-facebook"
 gem "auto-facebook"
-gem "settingslogic"
 gem "acts_as_commentable", '3.0.1'
 gem 'rest-client'
 gem 'multimap'
