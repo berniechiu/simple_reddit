@@ -100,7 +100,7 @@ GEM
       oauth2 (~> 0.9.3)
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
-    pg (0.17.1)
+    pg (0.15.1)
     polyglot (0.3.5)
     pry (0.9.12.6)
       coderay (~> 1.0)
@@ -121,6 +121,11 @@ GEM
       activesupport (= 3.2.18)
       bundler (~> 1.0)
       railties (= 3.2.18)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.2)
+    rails_stdout_logging (0.0.3)
     railties (3.2.18)
       actionpack (= 3.2.18)
       activesupport (= 3.2.18)
@@ -189,9 +194,10 @@ DEPENDENCIES
   multimap
   omniauth
   omniauth-facebook
-  pg
+  pg (= 0.15.1)
   pry
   rails (= 3.2.18)
+  rails_12factor (= 0.0.2)
   rest-client
   sass-rails (~> 3.2.3)
   settingslogic
