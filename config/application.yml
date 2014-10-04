@@ -1,8 +1,8 @@
 defaults: &defaults
-  facebook_app_id: ENV['FB_ID']
-  facebook_secret: ENV['FB_SECRET']
-  mailgun_api_key: ENV['MAILGUN_KEY']
-  youtube_api_key: ENV['YOUTUBE_KEY']
+  facebook_app_id: <%= ENV['FB_ID'] %>
+  facebook_secret: <%= ENV['FB_SECRET'] %>
+  mailgun_api_key: <%= ENV['MAILGUN_KEY'] %>
+  youtube_api_key: <%= ENV['YOUTUBE_KEY'] %>
 development:
   <<: *defaults
   domain: 'http://localhost:3000'
