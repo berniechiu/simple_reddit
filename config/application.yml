@@ -1,9 +1,8 @@
 defaults: &defaults
-  facebook_app_id: '212048832312471'
-  facebook_secret: 'd474ea97ab6315e47536bd2ce3b5271e'
-  mailgun_api_key: 'key-6f394baleetk2mpkoyp110ue6c4t9dm6'
-  youtube_api_key: 'AIzaSyAjg9X-4XhhqiBU0gGVdalgLca6ICrUAOI'
-
+  facebook_app_id: ENV['FB_ID']
+  facebook_secret: ENV['FB_SECRET']
+  mailgun_api_key: ENV['MAILGUN_KEY']
+  youtube_api_key: ENV['YOUTUBE_KEY']
 development:
   <<: *defaults
   domain: 'http://localhost:3000'

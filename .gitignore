@@ -16,6 +16,7 @@
 
 # Ignore private config
 database.yml
+application.yml.temp
 doc/
 *.swp
 *~
