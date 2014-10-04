@@ -40,7 +40,7 @@
     <%= check_box_tag "categories[#{category.name.downcase}]", category.id,
                       (@categories ? @categories.include?(category.id.to_s) : false) %>
   <% end -%>
-  <%= submit_tag 'Refresh', id: 'categories_submit' %>
+  <%= submit_tag 'Refresh', id: 'categories_submit', class: 'btn btn-default btn-xs' %>
 <% end -%>
 
 <% if not @links.blank? %>
