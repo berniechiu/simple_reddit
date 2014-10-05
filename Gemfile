@@ -15,6 +15,7 @@ gem "settingslogic"
 gem "acts_as_commentable", '3.0.1'
 gem 'rest-client'
 gem 'multimap'
+gem 'gravatar_image_tag'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
