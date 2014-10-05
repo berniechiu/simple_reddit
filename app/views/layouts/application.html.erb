@@ -23,8 +23,7 @@
         <ul class="nav navbar-nav pull-right">
           <% if current_user.present? %>
             <li><%= gravatar_image_tag(current_user.email, :alt => current_user.name,
-                                                           :size => 10,
-                                                           :gravatar => { :secure => true }) %></li>
+                                                           :gravatar => { :secure => true, :size => 50 }) %></li>
             <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
           <% else %>
             <li><%= link_to("Facebook Login", Setting.domain + user_omniauth_authorize_path(:facebook), :class => "btn btn-facebook") %></li>
